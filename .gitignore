@@ -1,0 +1,6 @@
+*.pyc
+*.log
+*.asv
+*.DS_Store
+
+experiments/

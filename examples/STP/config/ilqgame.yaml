@@ -1,0 +1,71 @@
+# region: SYSTEM
+N_AGENT: 4
+DIM_X: 4
+DIM_U: 2
+WIDTH: 0.1
+PX_DIM: 0
+PY_DIM: 1
+DYNAMICS: 'DubinsCar'
+COST: 'CostDubinsCarGame'
+# endregion
+
+# region: COST PARAM
+W_X: 0.1
+W_Y: 0.1
+W_V: 1.
+W_PSI: 0.
+W_X_T: 10.
+W_Y_T: 10.
+W_V_T: 0.
+W_PSI_T: 0.
+W_ACCEL: 0.01
+W_DELTA: 0.1
+
+# CONSTRAINT PARAM
+PROX_SEP: 0.7   # safe separation
+PROX_SEP_CHECK: 0.2
+V_REF: 0.3
+V_MIN: 0.1
+V_MAX: 0.6
+A_MIN: -1.
+A_MAX: 1.
+DELTA_MIN: -2.5
+DELTA_MAX: 2.5
+Q1_V: 10.
+Q2_V: 30.
+Q1_PROX: 10.
+Q2_PROX: 80.
+BARRIER_THR: 15.
+# endregion
+
+# region: STP SOLVER
+N: 41
+T: 4.
+RHC: False # If use RHC for subgames
+MAX_ITER: 100 # ILQR max iteration
+RHC_STEPS: 41   # Horizon in RHC mode
+OPEN_LOOP_STEP: 5 # int (>= 1), RHC mode only
+INIT_WITH_PARENT: True
+COL_CHECK_N: 21 # Collision check horizon
+
+# BNP PARAMS
+BRANCHING: 'depthfirst' # branching strategies: 'depthfirst', 'bestfirst'
+MAX_NODES: 10000 # max number of explored nodes
+FEAS_TOL: 0.0001
+MIN_GAP: 0.0 # optimality threshold
+MAX_ITER_BNP: 100
+VERBOSE_BNP: False
+
+# SIMULATION
+SIM_STEPS: 350   # max simulation time steps
+OUT_FOLDER: experiments/default
+RANDOM_SEED: 35
+PLOT_RES: True
+
+# ATC
+ATC_X: 0.
+ATC_Y: 0.
+ATC_RADIUS: 2.5
+TARGET_RADIUS: 0.6
+REACH_RADIUS: 0.1
+# endregion

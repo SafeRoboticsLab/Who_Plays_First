@@ -1,0 +1,47 @@
+# SYSTEM
+N_AGENT: 4
+DIM_X: 4
+DIM_U: 2
+WIDTH: 0.1
+PX_DIM: 0
+PY_DIM: 1
+DYNAMICS: 'DubinsCar'
+COST: 'CostDubinsCar'
+
+# COST PARAM
+W_X: 1.
+W_Y: 1.
+W_V: 0.
+W_PSI: 0.
+W_X_T: 50.
+W_Y_T: 50.
+W_V_T: 0.
+W_PSI_T: 0.
+W_ACCEL: 0.01
+W_DELTA: 0.1
+
+# CONSTRAINT PARAM
+PROX_SEP: 0.6   # safe separation
+PROX_SEP_CHECK: 0.2
+V_REF: 0.3
+V_MIN: -0.05
+V_MAX: 0.6
+A_MIN: -2.
+A_MAX: 0.3
+DELTA_MIN: -2.5
+DELTA_MAX: 2.5
+Q1_V: 0.4
+Q2_V: 15.
+Q1_PROX: 10.
+Q2_PROX: 80.
+BARRIER_THR: 15.
+
+# STP SOLVER
+N: 41
+T: 4.
+RHC: False # If use RHC for subgames
+MAX_ITER: 100 # ILQR max iteration
+RHC_STEPS: 41   # Horizon in RHC mode
+OPEN_LOOP_STEP: 5 # int (>= 1), RHC mode only
+INIT_WITH_PARENT: True
+COL_CHECK_N: 31 # Collision check horizon
